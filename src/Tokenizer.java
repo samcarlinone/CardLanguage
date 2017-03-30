@@ -13,7 +13,7 @@ public class Tokenizer {
             String c = data.substring(i, i+1);
 
             //Skip Whitespace
-            if(c.matches("\\s")) {
+            if(c.matches("[,\\s]")) {
                 i++;
                 continue;
             }
@@ -40,7 +40,8 @@ public class Tokenizer {
                     //Keep Searching
                 }
 
-                tokens.add(new Token(TType.STRING, data.substring(s, i-1)));
+                i--;
+                tokens.add(new Token(TType.STRING, data.substring(s, i)));
                 continue;
             }
 
@@ -53,7 +54,8 @@ public class Tokenizer {
                     //Keep Searching
                 }
 
-                tokens.add(new Token(TType.NUMBER, data.substring(s, i-1)));
+                i--;
+                tokens.add(new Token(TType.NUMBER, data.substring(s, i)));
                 continue;
             }
 
@@ -66,7 +68,8 @@ public class Tokenizer {
                     //Keep Searching
                 }
 
-                tokens.add(new Token(TType.NAME, data.substring(s, i-1)));
+                i--;
+                tokens.add(new Token(TType.NAME, data.substring(s, i)));
                 continue;
             }
 
