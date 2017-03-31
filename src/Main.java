@@ -14,6 +14,6 @@ public class Main {
         tokens.toArray(nodes);
         ArrayList<ASTNode> AST = Parser.parse(nodes);
 
-        System.out.println("Hey");
+        Executor.exe
     }
 }
